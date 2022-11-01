@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 80vh;
+}
+
+.addtask-container {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid black;
+    width: 20vw;
+    gap: 30px;
+}
+
+#todo-container {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid black;
+    width: 40vw;
+    gap: 30px;
+}
+
+.finnished-container {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid black;
+    width: 20vw;
+}
+
+h3 {
+    border-bottom: 3px solid black;
+
+    &.task__category {
+        border-bottom: 3px dotted black;
+    }
+}
+
+h4 {
+    border-bottom: 3px dotted black;
+    text-transform: uppercase;
+}
+
+
+#bodycare{
+    background-color: #84A59D;
+}
+
+#clean {
+    background-color: #F28482;
+}
+
+#health{
+    background-color: #F5CAC3;
+}
+
+#shop {
+    background-color: #FFD1F3;
+}
+
+#social {
+    background-color: #F6BD60;
+}
+
+#study {
+    background-color: #D99AC5;
+}
+
+#others {
+    background-color: #BAD7F2;
+}
