@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My todo list</title>
+    <link href="scss/main.scss" rel="stylesheet"/>
+    <script src="js/main.js"></script>
+</head>
+<body>
+    <div class="content-container">
+
+        <h3 class="addtask-title">Add new task</h3>
+        <div class="addtask-container">
+            <label for="categorie">Choose categorie</label>
+            <select id="categorie" name="categorie">
+                <option value="bodycare">Body care</option>
+                <option value="clean">Clean</option>
+                <option value="health">Health</option>
+                <option value="shop">Shop</option>
+                <option value="social">Social</option>
+                <option value="studying">studying</option>
+                <option value="others">Others</option>
+            </select>
+        </div>
+
+        <h3 class="todo-title">To do</h3>
+        <div class="todo-container"></div>
+        <h3 class="finnished-title">Finnished</h3>
+        <div class="finnished-container"></div>
+    </div>
+</body>
+</html>
