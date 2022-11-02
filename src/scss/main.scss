@@ -53,30 +53,42 @@ h4 {
 }
 
 
-#bodycare{
+.bodycare{
     background-color: #84A59D;
 }
 
-#clean {
+.clean {
     background-color: #F28482;
 }
 
-#health{
+.health{
     background-color: #F5CAC3;
 }
 
-#shop {
+.shop {
     background-color: #FFD1F3;
 }
 
-#social {
+.social {
     background-color: #F6BD60;
 }
 
-#study {
+.study {
     background-color: #D99AC5;
 }
 
-#others {
+.others {
     background-color: #BAD7F2;
+}
+
+
+.task {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+span {
+    font-weight: normal;
+    font-size: 1rem;
 }
