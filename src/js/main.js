@@ -26,21 +26,7 @@ loadTodoList ();
 
 loadCompletedList();
 
-
-// tar bort vald task från notCompleted -> sorterar om completed och notCompleted FUNKAR TILL TRYCKT 3 ggr
-
-function deleteTask (removedTask, indexOfTask){
-
-    console.log(removedTask);
-    console.log(indexOfTask);
-
-    if (removedTask.completed === true) {
-        completed.splice(indexOfTask, 1);
-    } else {
-        notCompleted.splice(indexOfTask, 1);
-    }
-    
-    document.getElementById(removedTask.chore).innerHTML= '';
+function clearAndArrangeTasks (){
 
     document.getElementById("bodycare").innerHTML = '';
     document.getElementById("clean").innerHTML = '';
@@ -64,6 +50,62 @@ function deleteTask (removedTask, indexOfTask){
     loadTodoList ();
 
     loadCompletedList();
+}
+
+
+function moveTaskUp (movedTask, indexOfTask) {
+
+    if (indexOfTask > 0) {
+
+        let taskAbove = notCompleted[indexOfTask - 1];
+        
+        notCompleted.splice(indexOfTask - 1, 1, movedTask);
+
+        notCompleted.splice(indexOfTask, 1, taskAbove);
+
+        console.log(taskAbove);
+        console.log(notCompleted);
+
+        clearAndArrangeTasks();
+
+    } 
+}
+
+function moveTaskDown (movedTask, indexOfTask) {
+    console.log(notCompleted.length);
+    console.log(indexOfTask);
+
+    if (indexOfTask < notCompleted.length - 1) {
+
+        let taskBelow = notCompleted[indexOfTask + 1];
+
+        notCompleted.splice(indexOfTask + 1, 1, movedTask);
+
+        notCompleted.splice(indexOfTask, 1, taskBelow);
+
+        console.log(taskBelow);
+        console.log(notCompleted);
+
+        clearAndArrangeTasks();
+    }
+}
+
+// tar bort vald task från notCompleted -> sorterar om completed och notCompleted FUNKAR 
+
+function deleteTask (removedTask, indexOfTask){
+
+    console.log(removedTask);
+    console.log(indexOfTask);
+
+    if (removedTask.completed === true) {
+        completed.splice(indexOfTask, 1);
+    } else {
+        notCompleted.splice(indexOfTask, 1);
+    }
+    
+    document.getElementById(removedTask.chore).innerHTML= '';
+
+    clearAndArrangeTasks();
 
 }
 
@@ -86,37 +128,13 @@ function changeTaskStatus(pickedTask, indexOfTask){
         notCompleted.splice(indexOfTask, 1);
     }
 
-    
-    
 
-    document.getElementById("bodycare").innerHTML = '';
-    document.getElementById("clean").innerHTML = '';
-    document.getElementById("health").innerHTML = '';
-    document.getElementById("shop").innerHTML = '';
-    document.getElementById("social").innerHTML = '';
-    document.getElementById("study").innerHTML = '';
-    document.getElementById("others").innerHTML = '';
-    
-    document.getElementById("bodycare-done").innerHTML = '';
-    document.getElementById("clean-done").innerHTML = '';
-    document.getElementById("health-done").innerHTML = '';
-    document.getElementById("shop-done").innerHTML = '';
-    document.getElementById("social-done").innerHTML = '';
-    document.getElementById("study-done").innerHTML = '';
-    document.getElementById("others-done").innerHTML = '';
-
-    loadTodoList ();
-    loadCompletedList();
-
-    console.log(pickedTask);
-    console.log(indexOfTask);
-    console.log(completed);
-    console.log(notCompleted);
+    clearAndArrangeTasks();
   
 }
 
 
-    // Skapa strukturen på completed
+    // Skapa strukturen på completed FUNKAR
 
     function loadCompletedList() { 
 
@@ -151,14 +169,15 @@ function changeTaskStatus(pickedTask, indexOfTask){
             chore.className = "task__chore";
             
             chore.innerHTML = completed[i].chore;
-            checkicon.innerHTML = "done";
+            checkicon.innerHTML = "undo";
             trashicon.innerHTML = "delete";
             
             category.appendChild(container);
             container.appendChild(chore);
             container.appendChild(btnContainer);
-            btnContainer.appendChild(trashbtn);
             btnContainer.appendChild(checkbtn);
+            btnContainer.appendChild(trashbtn);
+
             
             checkbtn.appendChild(checkicon);
             trashbtn.appendChild(trashicon);
@@ -174,6 +193,7 @@ function changeTaskStatus(pickedTask, indexOfTask){
         }  
     }
 
+    // Skapar struktur på todo listan FUNKAR
 
     function loadTodoList () { 
 
@@ -183,19 +203,33 @@ function changeTaskStatus(pickedTask, indexOfTask){
             let container = document.createElement("div");
             let chore = document.createElement("span");
             let btnContainer = document.createElement("div");
+            //////////// buttons
+            let upbtn = document.createElement("button");
+            let downbtn = document.createElement("button");
             let checkbtn = document.createElement("button");
             let trashbtn = document.createElement("button");
 
             container.setAttribute("id", notCompleted[i].chore);
+
+            upbtn.setAttribute("type", "button");
+            downbtn.setAttribute("type", "button");
             checkbtn.setAttribute("type", "button");
             trashbtn.setAttribute("type", "button");
-        
+
+            let upicon = document.createElement("span");
+            let downicon = document.createElement("span");
             let checkicon = document.createElement("span");
             let trashicon = document.createElement("span");
             
         
             container.className = "task";
             btnContainer.className = "btn-container";
+
+            upicon.className =  "material-symbols-outlined";
+            upbtn.className = "task__upbtn";
+
+            downicon.className =  "material-symbols-outlined";
+            upbtn.className = "task__upbtn";
         
             checkicon.className = "material-symbols-outlined";
             checkbtn.className = "task__checkbtn";
@@ -206,17 +240,32 @@ function changeTaskStatus(pickedTask, indexOfTask){
             chore.className = "task__chore";
             
             chore.innerHTML = notCompleted[i].chore;
+            upicon.innerHTML = "expand_less";
+            downicon.innerHTML = "expand_more";
             checkicon.innerHTML = "done";
             trashicon.innerHTML = "delete";
         
             category.appendChild(container);
             container.appendChild(chore);
             container.appendChild(btnContainer);
-            btnContainer.appendChild(trashbtn);
             btnContainer.appendChild(checkbtn);
+            btnContainer.appendChild(upbtn);
+            btnContainer.appendChild(downbtn);
+            btnContainer.appendChild(trashbtn);
             
+            
+            upbtn.appendChild(upicon);
+            downbtn.appendChild(downicon);
             checkbtn.appendChild(checkicon);
             trashbtn.appendChild(trashicon);
+
+            upbtn.addEventListener("click", ()=> {
+                moveTaskUp(notCompleted[i], i);
+            });
+
+            downbtn.addEventListener("click", ()=> {
+                moveTaskDown(notCompleted[i], i);
+            });
         
             checkbtn.addEventListener("click", ()=> {
                 changeTaskStatus(notCompleted[i], i);
@@ -231,7 +280,7 @@ function changeTaskStatus(pickedTask, indexOfTask){
     
 
     
-// Skapa en ny task 
+// Skapa en ny task FUNKAR
 
 
 
@@ -247,82 +296,10 @@ function createAndStoreTask() {
     document.getElementById("chore").value = '';
 
     
-    document.getElementById("bodycare").innerHTML = '';
-    document.getElementById("clean").innerHTML = '';
-    document.getElementById("health").innerHTML = '';
-    document.getElementById("shop").innerHTML = '';
-    document.getElementById("social").innerHTML = '';
-    document.getElementById("study").innerHTML = '';
-    document.getElementById("others").innerHTML = '';
-    
-    document.getElementById("bodycare-done").innerHTML = '';
-    document.getElementById("clean-done").innerHTML = '';
-    document.getElementById("health-done").innerHTML = '';
-    document.getElementById("shop-done").innerHTML = '';
-    document.getElementById("social-done").innerHTML = '';
-    document.getElementById("study-done").innerHTML = '';
-    document.getElementById("others-done").innerHTML = '';
-    
-    loadTodoList ();
-    loadCompletedList();
+    clearAndArrangeTasks();
 
 }
 
-
-// lägg till ny task i todo listan
-
-function addNewTaskToList () {
-
-  
-
-    let category = document.getElementById(tasks[tasks.length - 1].category); //ex. <div id="clean"></div>
-    let container = document.createElement("div");
-    let chore = document.createElement("span");
-    let btnContainer = document.createElement("div");
-    let checkbtn = document.createElement("button");
-    let trashbtn = document.createElement("button");
-    
-    container.setAttribute("id", tasks[tasks.length - 1].chore );
-    checkbtn.setAttribute("type", "button");
-    trashbtn.setAttribute("type", "button");
-
-    let checkicon = document.createElement("span");
-    let trashicon = document.createElement("span");
-    
-
-    container.className = "task";
-    btnContainer.className = "btn-container";
-
-    checkicon.className = "material-symbols-outlined";
-    checkbtn.classList.add ("task__checkbtn");
-    trashbtn.addEventListener("click", ()=> {
-        moveToCompleted(tasks[tasks.length - 1].chore);
-    });
-
-    trashicon.className = "material-symbols-outlined";
-    trashbtn.classList.add ("task__trashbtn");
-    trashbtn.addEventListener("click", ()=> {
-        deleteTask(tasks[tasks.length - 1].chore);
-    });
-
-
-    chore.className = "task__chore";
-    
-    chore.innerHTML = tasks[tasks.length - 1].chore;
-    checkicon.innerHTML = "done";
-    trashicon.innerHTML = "delete";
-
-    category.appendChild(container);
-    container.appendChild(chore);
-    container.appendChild(btnContainer);
-    btnContainer.appendChild(trashbtn);
-    btnContainer.appendChild(checkbtn);
-    
-    checkbtn.appendChild(checkicon);
-    trashbtn.appendChild(trashicon);
-    console.log(tasks[tasks.length - 1]);
-
-}
 
 
 
