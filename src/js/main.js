@@ -244,15 +244,85 @@ function createAndStoreTask() {
     let task = new Task (category, chore, false);
     notCompleted.push(task);
 
-
-
     document.getElementById("chore").value = '';
 
+    
+    document.getElementById("bodycare").innerHTML = '';
+    document.getElementById("clean").innerHTML = '';
+    document.getElementById("health").innerHTML = '';
+    document.getElementById("shop").innerHTML = '';
+    document.getElementById("social").innerHTML = '';
+    document.getElementById("study").innerHTML = '';
+    document.getElementById("others").innerHTML = '';
+    
+    document.getElementById("bodycare-done").innerHTML = '';
+    document.getElementById("clean-done").innerHTML = '';
+    document.getElementById("health-done").innerHTML = '';
+    document.getElementById("shop-done").innerHTML = '';
+    document.getElementById("social-done").innerHTML = '';
+    document.getElementById("study-done").innerHTML = '';
+    document.getElementById("others-done").innerHTML = '';
+    
     loadTodoList ();
     loadCompletedList();
 
 }
 
+
+// lägg till ny task i todo listan
+
+function addNewTaskToList () {
+
+  
+
+    let category = document.getElementById(tasks[tasks.length - 1].category); //ex. <div id="clean"></div>
+    let container = document.createElement("div");
+    let chore = document.createElement("span");
+    let btnContainer = document.createElement("div");
+    let checkbtn = document.createElement("button");
+    let trashbtn = document.createElement("button");
+    
+    container.setAttribute("id", tasks[tasks.length - 1].chore );
+    checkbtn.setAttribute("type", "button");
+    trashbtn.setAttribute("type", "button");
+
+    let checkicon = document.createElement("span");
+    let trashicon = document.createElement("span");
+    
+
+    container.className = "task";
+    btnContainer.className = "btn-container";
+
+    checkicon.className = "material-symbols-outlined";
+    checkbtn.classList.add ("task__checkbtn");
+    trashbtn.addEventListener("click", ()=> {
+        moveToCompleted(tasks[tasks.length - 1].chore);
+    });
+
+    trashicon.className = "material-symbols-outlined";
+    trashbtn.classList.add ("task__trashbtn");
+    trashbtn.addEventListener("click", ()=> {
+        deleteTask(tasks[tasks.length - 1].chore);
+    });
+
+
+    chore.className = "task__chore";
+    
+    chore.innerHTML = tasks[tasks.length - 1].chore;
+    checkicon.innerHTML = "done";
+    trashicon.innerHTML = "delete";
+
+    category.appendChild(container);
+    container.appendChild(chore);
+    container.appendChild(btnContainer);
+    btnContainer.appendChild(trashbtn);
+    btnContainer.appendChild(checkbtn);
+    
+    checkbtn.appendChild(checkicon);
+    trashbtn.appendChild(trashicon);
+    console.log(tasks[tasks.length - 1]);
+
+}
 
 
 
