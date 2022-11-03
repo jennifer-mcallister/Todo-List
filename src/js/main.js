@@ -21,6 +21,7 @@ for (let i = 0; i < tasks.length; i++) {
     }
 }
 
+// hämtar info från localstorage
 
 notCompleted = JSON.parse(localStorage.getItem("notCompleted"));
 completed = JSON.parse(localStorage.getItem("completed"));
@@ -50,9 +51,7 @@ function clearAndArrangeTasks (){
     document.getElementById("social-done").innerHTML = '';
     document.getElementById("study-done").innerHTML = '';
     document.getElementById("others-done").innerHTML = '';
-    
-    
-    
+     
 
     localStorage.setItem("notCompleted", JSON.stringify(notCompleted));
     localStorage.setItem("completed", JSON.stringify(completed));
@@ -60,8 +59,6 @@ function clearAndArrangeTasks (){
     notCompleted = JSON.parse(localStorage.getItem("notCompleted"));
     completed = JSON.parse(localStorage.getItem("completed"));
 
-    console.log(completed);
-    console.log(notCompleted);
     
     loadTodoList ();
 

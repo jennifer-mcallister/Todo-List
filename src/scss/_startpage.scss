@@ -13,6 +13,8 @@ body {
     @include mixins.container-box;
 }
 
+
+
 h3 {
     border-bottom: 3px dotted white;
     text-transform: uppercase;
@@ -27,7 +29,12 @@ h4 {
     font-size: 1.2rem;
 }
 
-
+label {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+}
 
 
 .bodycare{
