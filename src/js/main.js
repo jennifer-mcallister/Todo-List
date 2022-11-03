@@ -21,15 +21,12 @@ for (let i = 0; i < tasks.length; i++) {
     }
 }
 
-// hämtar info från localstorage
+    notCompleted = JSON.parse(localStorage.getItem("notCompleted"));
+    completed = JSON.parse(localStorage.getItem("completed"));
 
-notCompleted = JSON.parse(localStorage.getItem("notCompleted"));
-completed = JSON.parse(localStorage.getItem("completed"));
+    loadTodoList ();
 
-
-loadTodoList ();
-
-loadCompletedList();
+    loadCompletedList();
 
 // rensar och laddar om listan på skärmen och i koden
 
@@ -77,9 +74,6 @@ function moveTaskUp (movedTask, indexOfTask) {
 
         notCompleted.splice(indexOfTask, 1, taskAbove);
 
-        console.log(taskAbove);
-        console.log(notCompleted);
-
         clearAndArrangeTasks();
 
     } 
@@ -99,9 +93,6 @@ function moveTaskDown (movedTask, indexOfTask) {
 
         notCompleted.splice(indexOfTask, 1, taskBelow);
 
-        console.log(taskBelow);
-        console.log(notCompleted);
-
         clearAndArrangeTasks();
     }
 }
@@ -110,8 +101,6 @@ function moveTaskDown (movedTask, indexOfTask) {
 
 function deleteTask (removedTask, indexOfTask){
 
-    console.log(removedTask);
-    console.log(indexOfTask);
 
     if (removedTask.completed === true) {
         completed.splice(indexOfTask, 1);
@@ -154,7 +143,6 @@ function changeTaskStatus(pickedTask, indexOfTask){
 
     function loadCompletedList() { 
 
-        console.log(completed);
         for (let i = 0; i < completed.length; i++) {
 
         
@@ -307,9 +295,14 @@ function changeTaskStatus(pickedTask, indexOfTask){
 
 function createAndStoreTask() {
 
-    let category = document.getElementById("category").value;
     let chore = document.getElementById("chore").value;
 
+    if (chore === "") {
+        alert("Ooopsi! Chore is missing. Please fill in chore :)");
+        return;
+    }
+    
+    let category = document.getElementById("category").value;
    
     let task = new Task (category, chore, false);
     notCompleted.push(task);

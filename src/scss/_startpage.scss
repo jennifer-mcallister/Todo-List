@@ -5,6 +5,12 @@
 
 body {
     background-color: #fadfdf;
+    flex-direction: column;
+}
+
+.content-container {
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 .addtask-container, #todo-container, .finnished-container {
