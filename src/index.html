@@ -7,6 +7,7 @@
     <title>My todo list</title>
     <link href="scss/main.scss" rel="stylesheet"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
     <script src="js/main.js" type="module"></script>
 </head>
 <body>
@@ -15,30 +16,31 @@
         
         <div class="addtask-container">
             <h3 class="addtask-title">Add new task</h3>
+            <div class="createnew-container">
+                <!-- add a categorie -->
+                <div class="choosecategory-container">
+                    <label for="category">Choose category</label>
+                    <select name="category" id="category">
+                        <option value="bodycare">Body care</option>
+                        <option value="clean">Clean</option>
+                        <option value="health">Health</option>
+                        <option value="shop">Shop</option>
+                        <option value="social">Social</option>
+                        <option value="study">Study</option>
+                        <option value="others">Others</option>
+                    </select>
+                </div>
 
-            <!-- add a categorie -->
-            <div class="choosecategory-container">
-                <label for="category">Choose category</label>
-                <select name="category" id="category">
-                    <option value="bodycare">Body care</option>
-                    <option value="clean">Clean</option>
-                    <option value="health">Health</option>
-                    <option value="shop">Shop</option>
-                    <option value="social">Social</option>
-                    <option value="study">Study</option>
-                    <option value="others">Others</option>
-                </select>
+                <!-- add a chore -->
+                <form class="addchore-container">
+                    <label for="chore" name="chore">Add chore</label>
+                    <input type="text" name="chore" id="chore"/>
+                </form>
+
+
+                <!-- add task to todo list -->
+                <button type="button" id="btn-addtask">Add task</button>
             </div>
-
-            <!-- add a chore -->
-            <form class="addchore-container">
-                <label for="chore" name="chore">Add chore</label>
-                <input type="text" name="chore" id="chore"/>
-            </form>
-
-
-            <!-- add task to todo list -->
-            <button type="button" id="btn-addtask">Add task</button>
         </div>
 
        
@@ -85,37 +87,37 @@
        
         <div class="finnished-container" id="finnished">
             <h3 class="finnished-title" >Finnished</h3>
-            <div class="bodycare-finnished">
+            <div class="bodycare-finnished category-container">
                 <h4 id="bodycare-title">Body care</h4>
                 <div id="bodycare-done"></div>
             </div>
 
-            <div class="clean-finnished">
+            <div class="clean-finnished category-container">
                 <h4 id="clean-title">Clean</h4>
                 <div id="clean-done"></div>
             </div>
 
-            <div class="health-finnished">
+            <div class="health-finnished category-container">
                 <h4 id="health-title">Health</h4>
                 <div id="health-done"></div>
             </div>
 
-            <div class="shop-finnished">
+            <div class="shop-finnished category-container">
                 <h4 id="shop-title">Shop</h4>
                 <div id="shop-done"></div>
             </div>
 
-            <div class="social-finnished">
+            <div class="social-finnished category-container">
                 <h4 id="social-title">Social</h4>
                 <div id="social-done"></div>
             </div>
 
-            <div class="study-finnished">
+            <div class="study-finnished category-container">
                 <h4 id="study-title">Study</h4>
                 <div id="study-done"></div>
             </div>
 
-            <div class="others-finnished">
+            <div class="others-finnished category-container">
                 <h4 id="others-title">Others</h4>
                 <div id="others-done"></div>
             </div>

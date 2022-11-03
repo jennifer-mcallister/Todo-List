@@ -1,6 +1,5 @@
 
 @mixin container-box {
-    border-radius: 10px;
-    border: 3px solid black;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;;
-}
+    
+    border: 1px solid rgb(255, 211, 211);
+    box-shadow: rgba(218, 206, 206, 0.12) 0px 2px 4px 0px, rgba(88, 98, 102, 0.32) 0px 2px 16px 0px;}

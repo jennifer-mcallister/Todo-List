@@ -7,7 +7,6 @@ body {
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
-    height: 100vh;
 }
 
 .content-container {
@@ -21,31 +20,82 @@ body {
 .addtask-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
     border: 3px solid black;
-    width: 20vw;
+    width: 15vw;
     gap: 30px;
+    padding: 40px 30px;
+
+}
+
+.createnew-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 20px 10px;
+
+    .choosecategory-container {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        padding: 20px 10px;
+    }
+
+    .addchore-container {
+       @extend.choosecategory-container;
+       gap: 10px;
+       padding: 20px 10px; 
+    }
 }
 
 #todo-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 3px solid black;
+    border: 3px solid white;
     width: 40vw;
     gap: 30px;
+    padding: 40px 30px;
+    color: white;
+
+    .chore-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
 }
 
 .category-container {
     width: 90%;
-    padding: 10px;
+    padding: 30px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    & > div {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
 
 }
 
 .finnished-container {
     display: flex;
     flex-direction: column;
-    border: 3px solid black;
-    width: 20vw;
+    align-items: center;
+    border: 3px solid white;
+    width: 25vw;
+    gap: 30px;
+    padding: 40px 30px;
 }
 
 .task {
@@ -54,7 +104,7 @@ body {
     justify-content: space-between;
 
     &__chore {
-        padding-top: 10px;
+        font-size: 1.1rem;
     }
 }
 
@@ -67,4 +117,11 @@ span {
     display: flex;
     flex-direction: column;
     gap: 30px;
+}
+
+
+#clean {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }

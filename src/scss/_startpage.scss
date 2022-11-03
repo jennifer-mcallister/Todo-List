@@ -1,6 +1,7 @@
 @use "layout";
 @use "reset";
 @use "mixins";
+@use "buttons";
 
 body {
     background-color: #fadfdf;
@@ -8,26 +9,32 @@ body {
 
 .addtask-container, #todo-container, .finnished-container {
     background-color: rgb(245, 212, 212);
+    color: white;
     @include mixins.container-box;
 }
 
 h3 {
-    border-bottom: 3px solid black;
+    border-bottom: 3px dotted white;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    color: white;
+    
 }
 
 h4 {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid white;
     text-transform: uppercase;
+    font-size: 1.2rem;
 }
 
 
 
 
 .bodycare{
-    background-color: #84A59D;
+    background-color: #75beac;
 
     &-finnished {
-        background-color: #cce0db;
+        background-color: #c2d1cd;
     }
 }
 
@@ -40,42 +47,42 @@ h4 {
 }
 
 .health{
-    background-color: #F5CAC3;
+    background-color: #77a080;
 
     &-finnished {
-        background-color: #ffe7e3;
+        background-color: #adcfb5;
     }
 }
 
 .shop {
-    background-color: #FFD1F3;
+    background-color: #916886;
 
     &-finnished {
-        background-color: #ffdcf6;
+        background-color: #bb9cb3;;
     }
 }
 
 .social {
-    background-color: #F6BD60;
+    background-color: #f18053;
 
     &-finnished {
-        background-color: #fadeb0;
+        background-color: #ec9876;
     }
 }
 
 .study {
-    background-color: #D99AC5;
+    background-color: #c26594;
 
     &-finnished {
-        background-color: #ffddf4;
+        background-color: #da94b7;
     }
 }
 
 .others {
-    background-color: #BAD7F2;
+    background-color: #787788;
     
     &-finnished {
-        background-color: #dfe9f3;
+        background-color: #aeaeb9;
     }
 }
 

@@ -4,7 +4,7 @@ document.getElementById("btn-addtask").addEventListener("click", createAndStoreT
 
 let tasks = [
     new Task("clean", "kitchen", false),
-    new Task("clean", "zink", false),
+    new Task("clean", "sink", false),
     new Task("shop", "sallad", true)
 ]
 
