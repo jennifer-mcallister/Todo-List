@@ -201,6 +201,7 @@ function changeTaskStatus(pickedTask, indexOfTask){
 
             let category = document.getElementById(notCompleted[i].category); //ex. <div id="clean"></div>
             let container = document.createElement("div");
+            let choreContainer = document.createElement("div");
             let chore = document.createElement("span");
             let btnContainer = document.createElement("div");
             //////////// buttons
@@ -225,6 +226,8 @@ function changeTaskStatus(pickedTask, indexOfTask){
             container.className = "task";
             btnContainer.className = "btn-container";
 
+            choreContainer.className = "chore-container";
+
             upicon.className =  "material-symbols-outlined";
             upbtn.className = "task__upbtn";
 
@@ -246,9 +249,11 @@ function changeTaskStatus(pickedTask, indexOfTask){
             trashicon.innerHTML = "delete";
         
             category.appendChild(container);
-            container.appendChild(chore);
+            container.appendChild(choreContainer);
+            choreContainer.appendChild(checkbtn);
+            choreContainer.appendChild(chore);
             container.appendChild(btnContainer);
-            btnContainer.appendChild(checkbtn);
+            
             btnContainer.appendChild(upbtn);
             btnContainer.appendChild(downbtn);
             btnContainer.appendChild(trashbtn);
