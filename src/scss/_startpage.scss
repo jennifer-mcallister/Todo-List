@@ -8,7 +8,7 @@ body {
 }
 
 .addtask-container, #todo-container, .finnished-container {
-    background-color: rgb(245, 212, 212);
+    background-color: rgb(238, 175, 175);
     color: white;
     @include mixins.container-box;
 }
@@ -34,6 +34,10 @@ label {
     font-size: 1.2rem;
     color: white;
     font-weight: bold;
+}
+
+input {
+    height: 30px;
 }
 
 
