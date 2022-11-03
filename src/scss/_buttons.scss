@@ -1,8 +1,8 @@
 
 
-#bodycare > div > div > button {
+#bodycare > div > div > button, #bodycare-done > div > div > button {
     border: 1px solid white;
-    background-color: #5b9687;
+    background-color: rgba(0, 0, 0, 0.150);
     color: white;
     cursor: pointer;
     padding: 5px;
@@ -15,9 +15,9 @@
     }
 }
 
-#clean > div > div > button {
+#clean > div > div > button, #clean-done > div > div > button {
     border: 1px solid white;
-    background-color: #cf6563;
+    background-color: rgba(0, 0, 0, 0.150);
     color: white;
     cursor: pointer;
     padding: 5px;
@@ -30,9 +30,9 @@
     }
 }
 
-#health > div > div > button {
+#health > div > div > button, #health-done > div > div > button {
     border: 1px solid white;
-    background-color: #588061;
+    background-color: rgba(0, 0, 0, 0.150);
     color: white;
     cursor: pointer;
     padding: 5px;
@@ -45,9 +45,9 @@
     }
 }
 
-#shop > div > div > button {
+#shop > div > div > button, #shop-done > div > div > button {
     border: 1px solid white;
-    background-color: #855478;
+    background-color: rgba(0, 0, 0, 0.150);
     color: white;
     cursor: pointer;
     padding: 5px;
@@ -60,9 +60,9 @@
     }
 }
 
-#social > div > div > button {
+#social > div > div > button, #social-done > div > div > button {
     border: 1px solid white;
-    background-color: #d1663c;
+    background-color: rgba(0, 0, 0, 0.150);
     color: white;
     cursor: pointer;
     padding: 5px;
@@ -75,9 +75,9 @@
     }
 }
 
-#study > div > div > button {
+#study > div > div > button, #study-done > div > div > button {
     border: 1px solid white;
-    background-color: #a74c79;
+    background-color: rgba(0, 0, 0, 0.150);
     color: white;
     cursor: pointer;
     padding: 5px;
@@ -90,9 +90,9 @@
     }
 }
 
-#others > div > div > button {
+#others > div > div > button, #others-done > div > div > button {
     border: 1px solid white;
-    background-color: #535269;
+    background-color: rgba(0, 0, 0, 0.150);
     color: white;
     cursor: pointer;
     padding: 5px;

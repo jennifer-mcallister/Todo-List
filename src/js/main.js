@@ -22,6 +22,10 @@ for (let i = 0; i < tasks.length; i++) {
 }
 
 
+notCompleted = JSON.parse(localStorage.getItem("notCompleted"));
+completed = JSON.parse(localStorage.getItem("completed"));
+
+
 loadTodoList ();
 
 loadCompletedList();
@@ -48,6 +52,16 @@ function clearAndArrangeTasks (){
     document.getElementById("others-done").innerHTML = '';
     
     
+    
+
+    localStorage.setItem("notCompleted", JSON.stringify(notCompleted));
+    localStorage.setItem("completed", JSON.stringify(completed));
+
+    notCompleted = JSON.parse(localStorage.getItem("notCompleted"));
+    completed = JSON.parse(localStorage.getItem("completed"));
+
+    console.log(completed);
+    console.log(notCompleted);
     
     loadTodoList ();
 
@@ -143,7 +157,7 @@ function changeTaskStatus(pickedTask, indexOfTask){
 
     function loadCompletedList() { 
 
-
+        console.log(completed);
         for (let i = 0; i < completed.length; i++) {
 
         
