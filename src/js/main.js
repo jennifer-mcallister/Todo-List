@@ -26,6 +26,8 @@ loadTodoList ();
 
 loadCompletedList();
 
+// rensar och laddar om listan på skärmen och i koden
+
 function clearAndArrangeTasks (){
 
     document.getElementById("bodycare").innerHTML = '';
@@ -52,6 +54,7 @@ function clearAndArrangeTasks (){
     loadCompletedList();
 }
 
+// flyttar task upp i listan
 
 function moveTaskUp (movedTask, indexOfTask) {
 
@@ -70,6 +73,8 @@ function moveTaskUp (movedTask, indexOfTask) {
 
     } 
 }
+
+// flyttar task ner i listan
 
 function moveTaskDown (movedTask, indexOfTask) {
     console.log(notCompleted.length);
@@ -90,7 +95,7 @@ function moveTaskDown (movedTask, indexOfTask) {
     }
 }
 
-// tar bort vald task från notCompleted -> sorterar om completed och notCompleted FUNKAR 
+// tar bort vald task från notCompleted -> sorterar om completed och notCompleted 
 
 function deleteTask (removedTask, indexOfTask){
 
@@ -109,7 +114,7 @@ function deleteTask (removedTask, indexOfTask){
 
 }
 
-// flyttar en task till completed och tar bort den från notCompleted -> sorterar om completed och notCompleted FUNKAR
+// flyttar en task till completed och tar bort den från notCompleted -> sorterar om completed och notCompleted 
 
 
 function changeTaskStatus(pickedTask, indexOfTask){
@@ -134,7 +139,7 @@ function changeTaskStatus(pickedTask, indexOfTask){
 }
 
 
-    // Skapa strukturen på completed FUNKAR
+    // Skapa strukturen på completed 
 
     function loadCompletedList() { 
 
@@ -193,7 +198,7 @@ function changeTaskStatus(pickedTask, indexOfTask){
         }  
     }
 
-    // Skapar struktur på todo listan FUNKAR
+    // Skapar struktur på todo listan 
 
     function loadTodoList () { 
 
