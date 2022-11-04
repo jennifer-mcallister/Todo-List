@@ -1,6 +1,20 @@
 import { Task } from "./task";
 
+
+
+
 document.getElementById("btn-addtask").addEventListener("click", createAndStoreTask);
+
+// addEventlistener på enter, så att man inte bara kan klicka med musen för att lägga till en ny task.
+// Lyssnar efter ett knapptryck på tangentbordet "keypress", skickar med objektet e som innehåller information
+// om eventet som precis hände. Sickar med detta i en arrowfunction som kollar om knappen är lika med enter och om
+// det är sant anropar den funktionen som skapar en ny task.  
+
+window.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+        createAndStoreTask();
+    }
+});
 
 let tasks = [
     new Task("clean", "kitchen", false),
@@ -10,6 +24,9 @@ let tasks = [
 
 let completed = [];
 let notCompleted = [];
+
+console.log(completed);
+console.log(notCompleted);
 
 // loopar igenom de hårdkodade tasken som ligger i tasks-listan
 
@@ -21,8 +38,14 @@ for (let i = 0; i < tasks.length; i++) {
     }
 }
 
+    console.log(completed);
+    console.log(notCompleted);
+
     notCompleted = JSON.parse(localStorage.getItem("notCompleted"));
     completed = JSON.parse(localStorage.getItem("completed"));
+
+    console.log(completed);
+    console.log(notCompleted);
 
     loadTodoList ();
 
@@ -289,7 +312,8 @@ function changeTaskStatus(pickedTask, indexOfTask){
     
 
     
-// Skapa en ny task FUNKAR
+// Skapa en ny task och lägg till den i notCompleted listan 
+// OM input fältet inte är ifyllt får man ett alert och det läggs inte till en ny taskFUNKAR
 
 
 
@@ -298,7 +322,7 @@ function createAndStoreTask() {
     let chore = document.getElementById("chore").value;
 
     if (chore === "") {
-        alert("Ooopsi! Chore is missing. Please fill in chore :)");
+        alert("Ooopsi! Something is missing. Please fill in chore");
         return;
     }
     

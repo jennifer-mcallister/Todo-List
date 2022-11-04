@@ -19,6 +19,9 @@ body {
     @include mixins.container-box;
 }
 
+.createnew-container {
+    background-color: #e0b987;
+}
 
 
 h3 {
@@ -40,6 +43,7 @@ label {
     font-size: 1.2rem;
     color: white;
     font-weight: bold;
+    border-bottom: 1px solid white;
 }
 
 input {

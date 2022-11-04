@@ -2,7 +2,7 @@
 
 #btn-addtask {
     border: 1px solid white;
-    background-color: rgb(119, 79, 116);
+    background-color: rgba(0, 0, 0, 0.150);
     color: white;
     font-size: 1.3rem;
     font-weight: bold;
@@ -10,6 +10,7 @@
     padding: 5px;
     width: 120px;
     height: 40px;
+    text-transform: uppercase;
 
     
     &:hover {
@@ -19,7 +20,7 @@
 
 select, option {
     border: 1px solid white;
-    background-color: rgb(119, 79, 116);
+    background-color: rgba(0, 0, 0, 0.150);
     color: white;
     font-size: 1.3rem;
     font-weight: bold;
@@ -27,6 +28,7 @@ select, option {
     padding: 5px;
     width: 200px;
     height: 40px;
+    text-transform: uppercase;
 
     
     &:hover {
@@ -36,6 +38,7 @@ select, option {
 
 option:hover {
     background-color: rgb(179, 140, 175);
+    text-transform: uppercase;
 }
 
 
