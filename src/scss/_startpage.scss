@@ -3,10 +3,6 @@
 @use "mixins";
 @use "buttons";
 
-body {
-    background-color: #fadfdf;
-    flex-direction: column;
-}
 
 .content-container {
     padding-top: 30px;
@@ -20,30 +16,27 @@ body {
 }
 
 .createnew-container {
-    background-color: #ce6965;
+    background-color: #bd7f7f;
 }
 
-
 h3 {
-    // border-bottom: 3px dotted white;
-    // text-transform: uppercase;
     font-size: 4rem;
     color: white;
-    font-family: "Dancing Script", Arial, Helvetica, sans-serif;
-    
+    font-family: "Dancing Script", Arial, Helvetica, sans-serif; 
 }
 
 h4 {
-    border-bottom: 1px solid white;
     text-transform: uppercase;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    color: white;
+    border-bottom: 1px solid white;
+    font-weight: lighter;
 }
 
 label {
     text-transform: uppercase;
     font-size: 1.2rem;
     color: white;
-    font-weight: bold;
     border-bottom: 1px solid white;
 }
 
@@ -51,6 +44,7 @@ input {
     height: 30px;
 }
 
+// bakgrundsfärg för de olika kategorina
 
 .bodycare{
     background-color: #75beac;

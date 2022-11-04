@@ -1,13 +1,13 @@
 import { Task } from "./task";
 
 
-
+// knapp för att skapa en ny task
 
 document.getElementById("btn-addtask").addEventListener("click", createAndStoreTask);
 
 // addEventlistener på enter, så att man inte bara kan klicka med musen för att lägga till en ny task.
 // Lyssnar efter ett knapptryck på tangentbordet "keypress", skickar med objektet e som innehåller information
-// om eventet som precis hände. Sickar med detta i en arrowfunction som kollar om knappen är lika med enter och om
+// om eventet som precis hände. Skickar med detta i en arrowfunction som kollar om knappen är lika med enter och om
 // det är sant anropar den funktionen som skapar en ny task.  
 
 window.addEventListener("keypress", (e) => {
@@ -15,6 +15,8 @@ window.addEventListener("keypress", (e) => {
         createAndStoreTask();
     }
 });
+
+// hårdkodad lista 
 
 let tasks = [
     new Task("clean", "kitchen", false),
@@ -25,8 +27,6 @@ let tasks = [
 let completed = [];
 let notCompleted = [];
 
-console.log(completed);
-console.log(notCompleted);
 
 // loopar igenom de hårdkodade tasken som ligger i tasks-listan
 
@@ -38,20 +38,18 @@ for (let i = 0; i < tasks.length; i++) {
     }
 }
 
-    console.log(completed);
-    console.log(notCompleted);
+// hämtar tasken från localstorage
 
-    notCompleted = JSON.parse(localStorage.getItem("notCompleted"));
-    completed = JSON.parse(localStorage.getItem("completed"));
+notCompleted = JSON.parse(localStorage.getItem("notCompleted"));
+completed = JSON.parse(localStorage.getItem("completed"));
 
-    console.log(completed);
-    console.log(notCompleted);
+// Laddar om listorna 
 
-    loadTodoList ();
+loadTodoList ();
 
-    loadCompletedList();
+loadCompletedList();
 
-// rensar och laddar om listan på skärmen och i koden
+// rensar och laddar om listan på skärmen och i koden samt localstorage
 
 function clearAndArrangeTasks (){
 
@@ -85,7 +83,7 @@ function clearAndArrangeTasks (){
     loadCompletedList();
 }
 
-// flyttar task upp i listan
+// flyttar task upp i listan -> sorterar om completed och notCompleted 
 
 function moveTaskUp (movedTask, indexOfTask) {
 
@@ -102,7 +100,7 @@ function moveTaskUp (movedTask, indexOfTask) {
     } 
 }
 
-// flyttar task ner i listan
+// flyttar task ner i listan -> sorterar om completed och notCompleted 
 
 function moveTaskDown (movedTask, indexOfTask) {
     console.log(notCompleted.length);
@@ -123,7 +121,6 @@ function moveTaskDown (movedTask, indexOfTask) {
 // tar bort vald task från notCompleted -> sorterar om completed och notCompleted 
 
 function deleteTask (removedTask, indexOfTask){
-
 
     if (removedTask.completed === true) {
         completed.splice(indexOfTask, 1);
@@ -231,7 +228,9 @@ function changeTaskStatus(pickedTask, indexOfTask){
             let choreContainer = document.createElement("div");
             let chore = document.createElement("span");
             let btnContainer = document.createElement("div");
-            //////////// buttons
+
+            // skapar buttons
+
             let upbtn = document.createElement("button");
             let downbtn = document.createElement("button");
             let checkbtn = document.createElement("button");
@@ -309,13 +308,10 @@ function changeTaskStatus(pickedTask, indexOfTask){
     
         }  
     }
-    
+     
 
-    
 // Skapa en ny task och lägg till den i notCompleted listan 
-// OM input fältet inte är ifyllt får man ett alert och det läggs inte till en ny taskFUNKAR
-
-
+// OM input fältet inte är ifyllt får man ett alert och det skapas INTE en ny task
 
 function createAndStoreTask() {
 
