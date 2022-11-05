@@ -24,6 +24,8 @@ let tasks = [
     new Task("shop", "sallad", true)
 ]
 
+console.log(tasks);
+
 let completed = [];
 let notCompleted = [];
 
@@ -38,11 +40,20 @@ for (let i = 0; i < tasks.length; i++) {
     }
 }
 
+console.log (completed);
+console.log(notCompleted);
 // hämtar tasken från localstorage
+
+if (completed === null && notCompleted === null) {
+    localStorage.setItem("notCompleted", JSON.stringify(notCompleted));
+localStorage.setItem("completed", JSON.stringify(completed));
+}
+
 
 notCompleted = JSON.parse(localStorage.getItem("notCompleted"));
 completed = JSON.parse(localStorage.getItem("completed"));
-
+console.log (completed);
+console.log(notCompleted);
 // Laddar om listorna 
 
 loadTodoList ();
