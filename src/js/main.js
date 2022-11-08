@@ -1,21 +1,5 @@
 import { Task } from "./task";
 
-
-// knapp för att skapa en ny task
-
-document.getElementById("btn-addtask").addEventListener("click", createAndStoreTask);
-
-// addEventlistener på enter, så att man inte bara kan klicka med musen för att lägga till en ny task.
-// Lyssnar efter ett knapptryck på tangentbordet "keypress", skickar med objektet e som innehåller information
-// om eventet som precis hände. Skickar med detta i en arrowfunction som kollar om knappen är lika med enter och om
-// det är sant anropar den funktionen som skapar en ny task.  
-
-window.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") {
-        createAndStoreTask();
-    }
-});
-
 // hårdkodad lista 
 
 let tasks = [
@@ -24,11 +8,12 @@ let tasks = [
     new Task("shop", "sallad", true)
 ]
 
-console.log(tasks);
 
 let completed = [];
 let notCompleted = [];
 
+console.log(completed);
+console.log(notCompleted);
 
 // loopar igenom de hårdkodade tasken som ligger i tasks-listan
 
@@ -40,25 +25,56 @@ for (let i = 0; i < tasks.length; i++) {
     }
 }
 
-console.log (completed);
-console.log(notCompleted);
-// hämtar tasken från localstorage
+// knapp för att skapa en ny task
 
-if (completed === null && notCompleted === null) {
-    localStorage.setItem("notCompleted", JSON.stringify(notCompleted));
-localStorage.setItem("completed", JSON.stringify(completed));
+document.getElementById("btn-addtask").addEventListener("click", createAndStoreTask);
+
+
+// addEventlistener på enter, så att man inte bara kan klicka med musen för att lägga till en ny task.
+// Lyssnar efter ett knapptryck på tangentbordet "keypress", skickar med objektet e som innehåller information
+// om eventet som precis hände. Skickar med detta i en arrowfunction som kollar om knappen är lika med enter och om
+// det är sant anropar den funktionen som skapar en ny task. 
+//preventdefault ser till så att sidan inte laddas om när jag trycker på enter 
+
+window.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+        e.preventDefault();
+        createAndStoreTask();
+    }
+});
+
+function checkIfCompletedOrNotCompletedHasValue () {
+    if (completed === null && notCompleted === null) {
+        console.log("completed and notCompleted is null")
+        
+        let completed = [];
+        let notCompleted = [];
+ 
+        localStorage.setItem("notCompleted", JSON.stringify(notCompleted));
+        localStorage.setItem("completed", JSON.stringify(completed));
+        
+        notCompleted = JSON.parse(localStorage.getItem("notCompleted"));
+        completed = JSON.parse(localStorage.getItem("completed"));
+    
+        
+    }
 }
 
+window.onload = function () {
 
-notCompleted = JSON.parse(localStorage.getItem("notCompleted"));
-completed = JSON.parse(localStorage.getItem("completed"));
-console.log (completed);
-console.log(notCompleted);
-// Laddar om listorna 
+    checkIfCompletedOrNotCompletedHasValue();
+    
+    notCompleted = JSON.parse(localStorage.getItem("notCompleted"));
+    completed = JSON.parse(localStorage.getItem("completed"));
 
-loadTodoList ();
+    // Laddar om listorna 
+    
+    loadTodoList ();
+    
+    loadCompletedList();
 
-loadCompletedList();
+}
+
 
 // rensar och laddar om listan på skärmen och i koden samt localstorage
 
@@ -231,6 +247,7 @@ function changeTaskStatus(pickedTask, indexOfTask){
     // Skapar struktur på todo listan 
 
     function loadTodoList () { 
+        console.log(notCompleted);
 
         for (let i = 0; i < notCompleted.length; i++) {
 
